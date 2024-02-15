@@ -1,0 +1,103 @@
+\newpage
+
+\section{Элементы теории меры и интеграла}
+
+\textbf{Мера} --- счетно-аддитивная функция множества.
+
+\begin{definition}
+  $\mathcal{R}$ --- семейство множеств называется \textit{кольцом}, если $A,\, B \in \mathcal{R} \Rightarrow A \cup B,\ A \backslash B \in \mathcal{R}$
+\end{definition}
+
+\begin{definition}
+  Кольцо называют $\sigma$-кольцом, если дополнительно $\sum_{n = 1}^{\infty} A_n \in \mathcal{R}$ при $A_n \in \mathcal{R}$. 
+\end{definition}
+
+\begin{definition}
+  Функция $\phi : \mathcal{R} \to [0, +\infty]$ называется \textit{аддитивной}, если $\forall A, B \in \mathcal{R} : A\cap B = \emptyset$ выполнено
+  $\phi(A\cup B) = \phi(A) + \phi(B)$.
+\end{definition}
+
+Некоторые очевидные свойства
+
+\begin{itemize}
+  \item $\phi(\emptyset) = 0$
+  \item $\phi(\bigcup_{n = 1}^{\infty} A_n) = \sum_{n = 1}^{\infty} \phi(A_n)$,
+        при $A_i \cap A_j = \emptyset (i \ne j)$ и $A_i \in \mathcal{R}$
+  \item $\phi(A\cup B) + \phi(A \cap B) = \phi(A) + \phi(B)$
+  \item $A \subset B \Rightarrow \phi(A) \leq \phi(B)$
+  \item $A \subset B$ и $\phi(A) < +\infty$ $\Rightarrow$ $\phi(B\backslash A) = \phi(B) - \phi(A)$
+\end{itemize}
+
+\begin{definition}
+  $\mathcal{R}$ --- $\sigma$-кольцо, $\phi: \mathcal{R} \to [0, +\infty]$
+
+  $\phi$ называется \textit{счётно-аддитивным}, если
+
+  $A_n \in \mathcal{R}, A_i \cap A_j = \emptyset (i \ne j) \Rightarrow \phi(\bigcup_{n=1}^{\infty} A_n) = \sum_{n = 1}^{\infty} \phi(A_n)$
+\end{definition}
+
+Счетно-аддитивная функция удовлетворяет свойству непрерывности в следуюющем смысле:
+
+\begin{itemize}
+  \item $A_1 \subset A_2 \subset \dots \subset A_n \dots$, $A = \bigcup A_n \Rightarrow \phi(A_n)\to \phi(A)$, при $n \to \infty$
+\end{itemize}
+
+$$B_1 = A_1,\ B_2 = A_2 \backslash A_1,\ B_3 = A_3 \backslash A_2,\ \dots$$
+
+$$B_i \cap B_j = \emptyset (i \ne j),\ A_n = \bigcup_{i = 1}^{n} B_n,\ A = \bigcup_{i=1}^{\infty} B_n$$
+
+$$\phi(A_n) = \phi(B_1) + \dots \phi(B_n) \Rightarrow \phi(A) = \sum_{n = 1}^{\infty} \phi(B_n)$$
+
+
+\begin{definition}
+  Мера --- неотрицательная, счетно-аддитивная функция, определенная на $\sigma$-алгебре.
+\end{definition}
+
+
+
+
+\subsection{Мера Лебега в евклидовом пространстве $\R^n$}
+
+\begin{definition}
+  Брус --- $I = \left\{x \in \R^n : a_i \leq x_i \leq b_i \right\}$.
+\end{definition}
+
+Примеры:
+
+1) $\mu(I) = \prod_{i = 1}^{n} (b_i - a_i)$
+
+2) $p = 1$, $\R^n = \R$, $\alpha : \R \to \R$ --- монотонно-возраст
+
+\begin{itemize}
+  \item $\mu([a, b]) = \alpha(b+) - \alpha(a-)$
+  \item $\mu((a, b)) = \alpha(b-) - \alpha(a+)$
+  \item $\mu([a, b)) = \alpha(b-) - \alpha(a-)$
+  \item $\mu((a, b]) = \alpha(b+) - \alpha(a+)$
+\end{itemize}
+
+\begin{definition}
+  \textit{Элементарное множество} --- конечное объединение брусов. Обозначаем $A \in \mathcal{E}$
+\end{definition}
+
+Люблое элементарное множество можно представить в виде конечного объединение непересекающихся брусов.
+
+
+$\mu(A)$, $A \in \mathcal{E}$, $\mu(A) = \sum \mu(I_i)$ при $I_i \cap I_j = \emptyset (i \ne j)$
+
+Результат $\mu(A)$ не зависит от разбиения $A$. А функция $\mu$ оказывается аддитивной.
+
+$\mathcal{E}$ является кольцом, а $\mu$ аддитивна на нем.
+
+\begin{problem}
+  Любое открытое множество в $\R^n$ можно представить в виде счетного числа брусов.
+\end{problem}
+
+$0 \leq \mu$, конечность, аддитивность и регулярность на $\mathcal{E}$.
+
+\begin{definition}
+  $\mu$ называется регулярной (на $\mathcal{E}$), если 
+
+  $\forall A \in \mathcal{E}$ и $\forall \epsilon>0\ \exists\text{ замкнутые } F \in \mathcal{E} \text{ и открытое } G \in \mathcal{E}$
+
+  $F \subset A \subset G$ и $\mu(G) - \epsilon \leq \mu(A) \leq \mu(F) + \epsilon$
+\end{definition}
