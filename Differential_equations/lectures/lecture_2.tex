@@ -1,0 +1,215 @@
+\subsection{Дифференцируемость решений по начальным данным и параметрам}
+
+$$\frac{dx}{dt} = f(t, x, \mu), \quad \mu = \begin{pmatrix}
+  \mu_1 \\
+  \vdots \\
+  \mu_m
+\end{pmatrix} \in \R^m$$
+
+$x(t, \tau, \xi, \mu)$ --- решение задачи Коши с начальными данными $(\tau, \xi)$.
+
+\begin{theorem}
+  Пусть $f\in C_1(G \times\mathfrak{M})$. Тогда решение задачи Коши $x(t,\tau, \xi, \mu)$
+  с начальными данными $(\tau, \xi)$ непрерывно дифференцируемо по всем своим аргументам.
+\end{theorem}
+
+\begin{proof}
+  Будем использовать, что:
+  \begin{itemize}
+    \item $x(t, \tau, \xi, \mu)$ решение \\ $$\frac{d}{dt}x(t, \tau, \xi, \mu)
+    = f(t, x(t, \tau, \xi, \mu), \mu);$$
+    \item $x(t, \tau, \xi, \mu)$ решение задачи Коши с начальными данными
+    \\$$x(\tau, \tau, \xi, \mu) = \xi.$$
+  \end{itemize}
+
+  По факту, хотим доказать, что:
+
+  $$\frac{\partial x}{\partial t},\quad \frac{\partial x}{\partial \tau},
+  \quad \frac{\partial x}{\partial \xi},\quad \frac{\partial x}{\partial \mu}$$
+  
+  существуют и непрерывны. Первое уже не раз доказывалось.
+
+  1) $\dfrac{\partial x}{\partial \tau} = v(t)$ --- функция в $\R^n$
+
+  $$\left. \frac{\partial}{\partial \tau}\quad \right|\quad \frac{dx}{dt} = f(t, x(t, \tau, \xi, \mu))$$
+  $$\frac{\partial}{\partial \tau} \frac{dx}{dt} =
+  \frac{\partial f}{\partial \tau} =
+  \frac{\partial f}{\partial t} \underbrace{\frac{\partial t}{\partial \tau}}_{= 0}+
+  \frac{\partial f}{\partial x} \underbrace{\frac{\partial x}{\partial \tau}}_{= v} +
+  \frac{\partial f}{\partial \mu} \underbrace{\frac{\partial \mu}{\partial \tau}}_{= 0}$$
+
+  $$\frac{\partial}{\partial \tau} \frac{dx}{dt} = \frac{\partial f}{\partial x}\cdot v$$
+
+  Т.к. все принадлежит $C_1$, то 1 и 2 множители можно поменять местами.
+
+  \begin{equation}
+    \label{eq:1}
+    \frac{d}{dx} \frac{\partial x}{\partial \tau} = \frac{dv}{dt}
+    = \frac{\partial f}{\partial \tau}\cdot v
+  \end{equation}
+
+  $$\frac{\partial f}{\partial x} = 
+  \begin{pmatrix}
+    \frac{\partial f_1}{\partial x_1} & \dots  & \frac{\partial f_1}{\partial x_n} \\
+    \vdots                            & \vdots & \vdots                            \\
+    \frac{\partial f_n}{\partial x_1} & \dots  & \frac{\partial f_n}{\partial x_n} \\
+  \end{pmatrix}
+  $$
+
+  Вспомним, что $x$ еще и решение задачи Коши.
+
+  $$ \left. \frac{\partial}{\partial \tau}\quad \right| \quad
+  \left.x(t, \tau, \xi, \mu) \right|_{t = \tau} = \xi$$
+  $$\left.\frac{\partial x}{\partial t} \frac{\partial t}{\partial \tau} \right|_{t = \tau} +
+  \frac{\partial x}{\partial \tau} \frac{\partial \tau}{\partial \tau} +
+  \frac{\partial x}{\partial \xi} \underbrace{\frac{\partial \xi}{\partial \tau}}_{=0} +
+  \frac{\partial x}{\partial \mu} \underbrace{\frac{\partial \mu}{\partial \tau}}_{= 0} =
+  \underbrace{\frac{\partial \xi}{\partial \tau}}_{=0}$$
+
+  $$\frac{\partial x}{\partial t} + \frac{\partial x}{\partial \tau} = 0$$
+  
+  \begin{equation}
+    \label{eq:2}
+    f(\tau, \xi, \mu) = -v(\tau)
+  \end{equation}
+
+  Объединяя \ref*{eq:1} и \ref*{eq:2}, получаем задачу Коши для линейной системы.
+
+  $$
+    \begin{cases}
+      \frac{dv}{dt} = \frac{\partial f}{\partial x} \cdot v \\
+      v(\tau) = -f(\tau, \xi, \mu)
+    \end{cases}
+  $$
+
+  Значит, можно найти $v = \dfrac{\partial x}{\partial \tau}(t, \tau, \xi, \mu)$.
+
+  \begin{example}
+    $$
+    \begin{cases}
+      \frac{dx}{dt} = \mu \cdot x \\
+      x(\tau, \tau, \xi, \mu) = \xi
+    \end{cases}
+    $$
+  
+    $$x(t, \tau, \xi, \mu) = \xi e^{\mu(t - \tau)}$$
+  
+    $$\frac{\partial x}{\partial \tau} = -\mu \xi e^{\mu(t - \tau)}$$
+  
+    С другой стороны
+    \begin{itemize}
+      \item $f(t, \tau, \xi, \mu) = \mu \cdot x \Rightarrow \frac{\partial f}{\partial x} = \mu$
+      \item $v(\tau) = -f(\tau, \xi, \mu) = -\mu \xi$
+    \end{itemize}
+  
+    Получаем то же самое решение
+  \end{example}
+
+  2) Теперь считаем по $\xi$
+
+  $w(t) = \dfrac{\partial x}{\partial \xi}$ --- Якобиан ($\M_{n \times n}$)
+
+  $$\left. \frac{\partial}{\partial \xi}\quad \right| \quad \frac{dx}{dt}(t, \tau, \xi, \mu) = f(t, x, \mu)$$
+
+  $$\frac{\partial}{\partial \xi} \frac{dx}{dt} =
+  \frac{\partial f}{\partial t} \underbrace{\frac{\partial t}{\partial \xi}}_{= 0} +
+  \frac{\partial f}{\partial x} \underbrace{\frac{\partial x}{\partial \xi}}_{= w} +
+  frac{\partial f}{\partial \mu} \underbrace{\frac{\partial \mu}{\partial \xi}}_{=0}$$
+  
+  Первое и третье слагаемые 0 в силу независимости от $\xi$. Также меняем $\frac{d}{dt}$ и $\frac{\partial}{\partial \xi}$ местами в силу $C_1$.
+  
+  $$\frac{dw}{dt} = \frac{\partial f}{\partial x}w$$
+  
+  Снова пользуемся, что $x$ --- решение.
+  $$\left. \frac{\partial}{\partial \xi}\quad \right| \quad x(t, \tau, \xi,\mu) |_{t = \tau} = \xi$$
+  
+  $$\left.\frac{\partial x}{\partial t} \underbrace{\frac{\partial t}{\partial \xi}}_{=0} \right|_{t = \tau} +
+  \frac{\partial x}{\partial \tau} \underbrace{\frac{\partial \tau}{\partial \xi}}_{=0}  +
+  \underbrace{\frac{\partial x}{\partial \xi}}_{= w} \frac{\partial \xi}{\partial \xi} +
+  \frac{\partial x}{\partial \mu} \frac{\partial \mu}{\partial \xi}  =
+  \frac{\partial \xi}{\partial \xi} \cdot (E_n)$$
+  
+  В силу независимости $\tau$, $t$ и $\mu$ от $\xi$ получим, что
+
+  $$w(t) = E_n$$
+
+  Снова получаем задачу Коши относительно $w$
+
+  $$
+  \begin{cases}
+    \frac{dw}{dt} = \frac{\partial f}{\partial x} \cdot w \\
+    w(\tau) = E_n
+  \end{cases}
+  $$
+
+  \begin{example}
+    $$
+    \begin{cases}
+      \frac{dx}{dt} = \mu \cdot x \\
+      x(\tau, \tau, \xi, \mu) = \xi
+    \end{cases}
+    $$
+  
+    $$x(t, \tau, \xi, \mu) = \xi e^{\mu(t - \tau)}$$
+  
+    $$\frac{\partial x}{\partial \xi} = e^{\mu(t - \tau)}$$
+  
+    С другой стороны
+    \begin{itemize}
+      \item $f(t, \tau, \xi, \mu) = \mu \cdot x \Rightarrow \frac{\partial f}{\partial x} = \mu$
+      \item $w(\tau) = E_1 = 1$
+    \end{itemize}
+  
+    Получаем то же самое решение
+  \end{example}
+
+
+  3) $z(t) =\dfrac{\partial x}{\partial \mu}$ --- Якобиан ($\M_{n\times m}$)
+
+  $$\left. \frac{\partial}{\partial \mu}\quad \right| \quad \frac{dx}{dt}(t, \tau, \xi, \mu) = f(t, x,mu)$$
+
+  $$\frac{\partial}{\partial \mu} \frac{dx}{dt} =
+  \frac{\partial f}{\partial t} \underbrace{\frac{\partial t}{\partial \mu}}_{=0} +
+  \frac{\partial f}{\partial x} \underbrace{\frac{\partial x}{\partial \mu}}_{=z} +
+  \frac{\partial f}{\partial \mu} \frac{\partial \mu}{\partial \mu}$$
+
+  Снова меняем местами дифференциалы в левой части.
+  $$\frac{dz}{dt} = \frac{\partial f}{\partial x}\cdot z + \frac{\partial f}{\partial \mu}$$
+
+  Начальные условия
+
+  $$\left. \frac{\partial}{\partial \mu}\quad \right| \quad
+  x(t, \tau, \xi,\mu) \big|_{t = \tau} = \xi$$
+  
+  $$\left.\frac{\partial x}{\partial t} \underbrace{\frac{\partial t}{\partial \mu}}_{=0} \right|_{t = \tau} +
+  \frac{\partial x}{\partial \tau} \underbrace{\frac{\partial \tau}{\partial \mu}}_{=0} +
+  \frac{\partial x}{\partial \xi} \underbrace{\frac{\partial \xi}{\partial \mu}}_{= 0} +
+  \underbrace{\frac{\partial x}{\partial \mu}}_{=z} \frac{\partial \mu}{\partial \mu} =
+  \frac{\partial \xi}{\partial \mu}$$
+
+  Первое, второе и третье слагаемые 0.
+
+  $z(\tau) = 0_{(n \times m)}$
+
+  Итого мы и в третий раз получили задачу Коши
+
+  $$
+  \begin{cases}
+    \frac{dz}{dt} = \frac{\partial f}{\partial x} \cdot z + \frac{\partial f}{\partial \mu} \\
+    z(\tau) = 0_{n \times m}
+  \end{cases}
+  $$
+
+  \begin{example}
+    $$
+    \begin{cases}
+      \frac{dx}{dt} = \mu \cdot x \\
+      x(\tau, \tau, \xi, \mu) = \xi
+    \end{cases}
+    $$
+    
+    Для самостоятельного решения
+  \end{example}
+
+\end{proof}
+
