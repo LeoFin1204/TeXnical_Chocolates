@@ -64,15 +64,17 @@ $k$ находить мы умеем.
 Примеры задач
 
 \begin{problem}
-  $$xy'' + 2\frac{y}{x} = ln(-x)$$
+  $$xy'' - 2\frac{y}{x} = \ln(-x)$$
+\end{problem}
 
+\begin{solution}
   0) Приведем уравнение к "удобоворимому" виду
 
-  $$x^2y'' + 2y = xln(-x)$$
+  $$x^2y'' - 2y = x\ln(-x)$$
 
   1) Рассматриваем характеристический многочлен и находим общее решение однородного
   
-  $$\lambda(\lambda - 1) + 2 = 0$$
+  $$\lambda(\lambda - 1) - 2 = 0$$
 
   $$\lambda_1 = -1,\quad \lambda_2 = 2$$
 
@@ -84,5 +86,15 @@ $k$ находить мы умеем.
 
   $$\lambda^2 - \lambda + 2 = 0$$
 
-  $$y''(t) - y(t) + 2 = x(t)\,ln(-x(t)) = -te^t$$
-\end{problem}
+  $$y''(t) - y'(t) + 2y(t) = x(t)\ln(-x(t)) = -te^t$$
+
+  Находим частное решение для обычного диффура
+
+  $$\ysp = e^t\left(\frac{1}{4} - \frac{t}{2} \right)$$
+
+  Итоговое решение относительно $t$
+
+  $$y(t) = \ycom + \ysp = C_1e^{-t} + C_2e^{2t} + e^t\left(\frac{1}{4} - \frac{t}{2} \right)$$
+
+  $$y(x) = \frac{C_1}{x} + C_2x^2 - x\left(\frac{1}{4} - \frac{\ln(-x)}{2} \right)$$
+\end{solution}
