@@ -1,0 +1,141 @@
+\begin{definition}
+  \textit{Внешняя мера} произвольного множества $E \in \R^n$ $\mu^*(E)$ определяется как:
+  $$\mu^*(E) = \inf \sum_{i = 1}^{\infty} \mu(A_i),$$
+  где инфинум берется по всевозможным, не более чем счетными покрытиям
+  $\{A_i\},\; A_i \in \mathcal{E}$ множества $E$.
+\end{definition}
+
+\textbf{Замечание.} В определении можно заменить открытые элементарные множества на открытые параллелепипеды.
+
+\begin{lemma}
+  Внешняя мера является монотонной:
+  $$E_1 \subset E_2 \Rightarrow \mu^*(E_1) \leq \mu^*(E_2)$$
+\end{lemma}
+
+2 свойства внешней меры
+\begin{itemize}
+  \item $\mu^*(A) = \mu(A)$, для $A \in \mathcal{E}$
+  \item $\mu^*\left( \bigcup_{n = 1}^{\infty} E_n \right) \leq \sum_{n=1}^{\infty} \mu^*(E_n)$
+\end{itemize}
+
+\begin{proof}
+  \phantom{123}\par
+  \begin{itemize}
+  \item[1)] \textbf{$\leq$} 
+  
+  $A \in \mathcal{E}$, $\epsilon > 0$, берем открытое $G \in \mathcal{E}$: $A\subset G$ и 
+  $\mu(G) \leq \mu(A) + \epsilon$ (регулярность меры).
+
+  По определению внешней меры $\mu^*(A) \leq \mu(G) \leq \mu(A) + \epsilon$.
+  
+  В силу произвольности $\epsilon$ $\Rightarrow$ $\mu^*(A) \leq \mu(A)$.
+
+  \vspace{2mm}
+  \textbf{$\geq$} 
+  
+  $\mu^*(A) \leq \infty \; \Rightarrow\; \forall \epsilon > 0$ находится покрытие, что 
+  $$\sum_{n=1}^{\infty} \mu(A_n) \leq \mu^*(A) + \epsilon$$
+
+  Находим замкнутое элементарное $F \subset A$, $\mu(A) \leq \mu(F) + \epsilon$.
+  При этом $F$ --- компакт. Значит, $\exists N: \; F \subset A_1 \cup \ldots \cup A_N$.
+  $$\mu(A) \leq \mu(F) + \epsilon \leq \mu(A_1 \cup \ldots \cup A_N) + \epsilon \leq \sum_{n = 1}^{\infty} \mu(A_n) + \epsilon \leq \mu^*(A) + 2\epsilon$$
+
+  В силу произвольности $\epsilon$ получаем утверждение.
+
+  \vspace{2mm}
+  \item[2)] $$\mu^*\left(\bigcup_{n = 1}^{\infty} E_n\right) \leq \sum_{n = 1}^{\infty} \mu^*(E_n)$$
+  
+  Если мера хоть какого-то $\infty$, то доказывать нечего.
+
+  $\forall n \; \mu^*(E_n) < \infty$
+
+  $\epsilon>0$, $E_n \subset \bigcup_{k = 1}^{k_n} A_{nk}$
+
+  $$\sum_{k = 1}^{k_n} \mu(A_{nk}) \leq \mu^*(E_n) + \frac{\epsilon}{2^n}$$
+
+  $$\bigcup_n E_n \subset \bigcup_{n, k} A_{nk}$$
+
+  $$\mu^*\left(\bigcup_{n = 1}^{\infty} E_n\right) \leq \sum_{n = 1}^{\infty} \sum_{k = 1}^{k_n} \mu(A_{nk}) \leq \sum_{n=1}^{\infty}\left( \mu^*(E_n) + \frac{\epsilon}{2^n}\right) = \sum_{n = 1}^{\infty} \mu^*(E_n) + \epsilon$$
+
+  В силу произвольности $\epsilon$ получаем искомое.
+  \end{itemize}
+\end{proof}
+
+\begin{definition}
+  $d(A, B) = \mu^*\big((A\backslash B) \cup (B \backslash A)\big)$
+\end{definition}
+
+$d$ удовлетворяет некоторым аксиомам метрики
+
+\begin{itemize}
+  \item $d(A, B) = d(B, A)$
+  \item $d(A, A) = 0$
+  \item $d(A, B) \leq d(A, C) + d(C, B)$
+  \item $d(A, B) = 0$ \textbf{не} означает, что $A \equiv B$
+\end{itemize}
+
+Некоторые свойства
+
+\begin{itemize}
+  \item $\mu^*(A) = d(A, \emptyset)$
+  \item $|\mu^*(A) - \mu^*(B)| \leq d(A, B)$
+  \item $d(A_1 \cup A_2, B_1 \cup B_2) \leq d(A_1, B_1) + d(A_2, B_2)$
+  \item $d(A_1 \cap A_2, B_1 \cap B_2) \leq d(A_1, B_1) + d(A_2, B_2)$
+  \item $d(A_1 \backslash A_2, B_1 \backslash B_2) \leq d(A_1, B_1) + d(A_2, B_2)$
+\end{itemize}
+
+\begin{definition}
+  Множество $A \in \R^p$ называется \textit{конечно измеримым}, если $$\exists \{A_n \in \mathcal{E}\}_{n = 1}^{\infty}: d(A, A_n) \to 0, \text{ при } n \to \infty.$$
+\end{definition}
+\begin{definition}
+  Подмножество $\R^p$ называется измеримым, если оно представимо в виде не более чем счетного объединения конечно измеримых множеств.
+\end{definition}
+
+$\mathbb{M}_F(\mu)$ --- всевозможные объединения конечно измеримых множеств
+
+$\mathbb{M}(\mu)$ --- все измеримые множества
+
+\begin{lemma}
+  \hypertarget{Lemma1}{}
+  $$A \in \mathbb{M}(\mu), \mu^*(A) < \infty  \Rightarrow A \in \mathbb{M}_F(\mu)$$
+\end{lemma}
+
+\begin{theorem}[Каратеодори]
+  $\mathbb{M}(\mu)$ --- $\sigma$-алгебра, а $\mu^*$ на ней счетно-аддитивна.
+\end{theorem}
+
+\begin{proof}
+  \phantom{}\par
+  \begin{itemize}
+  \item[1)] Докажем, что $\mathbb{M}_F(\mu)$ --- кольцо, а $\mu^*$ аддитивна на $\mathbb{M}_F(\mu)$.
+
+  Возьмем $A, B \in \mathbb{M}_F(\mu)$.
+
+  $d(A, A_n), d(B, B_n) \to 0$ при $ n\to \infty$ (аппроксимируем элементарными множествами)
+
+  $\mu^*(A_n) \to \mu^*(A)$, $\mu^*(B_n) \to \mu^*(B)$
+
+  Из свойств функции $d$:
+  $$A_n \cup B_n \to A\cup B \quad A_n \cap B_n \to A\cap B \quad A_n \backslash B_n \to A\backslash B$$
+
+  $$\mu(A_n \cap B_n) + \mu(A_n \cup B_n) = \mu(A_n) + \mu(B_n)$$
+  $$\mu^*(A_n \cap B_n) + \mu^*(A_n \cup B_n) = \mu^*(A_n) + \mu^*(B_n)$$
+
+  Предельным переходом получим
+
+  $$\mu^*(A \cap B) + \mu^*(A \cup B) = \mu^*(A) + \mu^*(B)$$
+
+  \item[2)] $A = \bigcup_{n =1}^{\infty} A_n$, $A_n \in \mathbb{M}_F(\mu)$, причем $A_i$ не пересекаются.
+
+  $$\mu^*(A) \leq \sum_{n = 1}^{\infty} \mu^*(A_n)$$
+
+  $B_n = A_1 \cup \ldots \cup A_n \subset A$
+
+  $\mu^*(B_n) = \mu^*(A_1) + \mu^*(A_2) + \ldots + \mu^*(A_n) \leq \mu^*(A)$
+
+  $n \to \infty: \sum_{n=1}^{\infty} \mu^*(A_n) \leq \mu^*(A)$
+
+  Осталось распространить равенство на случай, когда $A_n$ просто измеримы (не обязательно конечно). 
+  Для этого достаточно воспользоваться \hyperlink{Lemma1}{Леммой 1.2.}
+  \end{itemize}
+\end{proof}

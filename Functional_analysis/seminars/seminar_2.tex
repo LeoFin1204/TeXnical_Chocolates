@@ -1,0 +1,61 @@
+\section{Семинар 2}
+
+Докажем регулярность второго примера из лекции
+
+\begin{proof}
+  $\underbrace{F}_{\text{замк.}} \subset A \subset \underbrace{G}_{\text{откр.}}$
+
+  $$\mu(G) - \epsilon \leq \mu(A) \leq \mu(F) + \epsilon$$
+
+  $\alpha: \R \to \R$ --- возрастающая
+
+  $A = (a, b]$
+
+  $\mu(A) = \alpha(b+) - \alpha(a+)$
+
+  $G = (a, b+\delta)$
+
+  $\mu(G) = \alpha((b + \delta)-) - \alpha(a+)$
+
+  $\mu(G) - \mu(A) = \alpha((b + \delta)-) - \alpha(b+) \leq \alpha(b + \delta) - \alpha(b+) \to 0$, при $\delta \to 0$.
+
+  Аналогично для $F$.
+\end{proof}
+
+\begin{theorem}
+  Любое открытое множество можно представить в виде счетного числа открытых параллелепипедов.
+\end{theorem}
+
+\begin{proof}
+  %сюда бы картиночку
+  Сначала разбиваем пространство на единичные кубы. Выбираем из них все те кубы (с замыканием), лежащие внутри множества.
+  Те кубы, которые пересекают наше множество, разделим на $2^n$ частей. Берем среди кубов поменьше выберем все лежащие внутри.
+  Повторяем это процесс до бесконечности. Утверждается, что объединение всех таких кубиков --- открытое множество. 
+  Для любой точки множества достаточно рассмотреть кубик с ребром меньшим, чем расстояние до границы. 
+\end{proof}
+
+\begin{problem}
+  $$d(A, B) = \mu^*(A \triangle B)$$
+  $$d(A, B) \leq d(A, C) + d(C, B)$$
+\end{problem}
+
+\begin{proof}
+  Докажем утверждение через монотонность меры.
+  Достаточно просто доказать, что 
+
+  $$A\triangle B \subset (A\triangle C) \cup (C\triangle B)$$
+
+  Если $x \in A, x\notin B$, то $x \in (A\backslash C) \cup (C \backslash B) \subset (A\triangle C) \cup (C\triangle B)$
+  
+  Если $x \in B, x\notin A$ аналогично.
+\end{proof}
+
+
+\subsection{Неравенства: продолжения}
+
+\begin{theorem}[Минковский]
+  $$\left(\sum_{i = 1}^{n} |a_i + b_i|^p\right)^\frac{1}{p} = \left(\sum_{i = 1}^{n} |a_i|^p\right)^\frac{1}{p} + \left(\sum_{i = 1}^{n} |b_i|^p\right)^\frac{1}{p}$$
+\end{theorem}
+
+Для самостоятельного вывода
+

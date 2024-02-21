@@ -9,7 +9,7 @@
 \end{definition}
 
 \begin{definition}
-  Кольцо называют $\sigma$-кольцом, если дополнительно $\sum_{n = 1}^{\infty} A_n \in \mathcal{R}$ при $A_n \in \mathcal{R}$. 
+  Кольцо называют \textit{$\sigma$-кольцом}, если дополнительно $\sum_{n = 1}^{\infty} A_n \in \mathcal{R}$ при $A_n \in \mathcal{R}$. 
 \end{definition}
 
 \begin{definition}
@@ -39,40 +39,40 @@
 Счетно-аддитивная функция удовлетворяет свойству непрерывности в следуюющем смысле:
 
 \begin{itemize}
-  \item $A_1 \subset A_2 \subset \dots \subset A_n \dots$, $A = \bigcup A_n \Rightarrow \phi(A_n)\to \phi(A)$, при $n \to \infty$
+  \item $A_1 \subset A_2 \subset \ldots \subset A_n \ldots$, $A = \bigcup A_n \Rightarrow \phi(A_n)\to \phi(A)$, при $n \to \infty$
 \end{itemize}
 
-$$B_1 = A_1,\ B_2 = A_2 \backslash A_1,\ B_3 = A_3 \backslash A_2,\ \dots$$
+$$B_1 = A_1,\ B_2 = A_2 \backslash A_1,\ B_3 = A_3 \backslash A_2,\ \ldots$$
 
 $$B_i \cap B_j = \emptyset (i \ne j),\ A_n = \bigcup_{i = 1}^{n} B_n,\ A = \bigcup_{i=1}^{\infty} B_n$$
 
-$$\phi(A_n) = \phi(B_1) + \dots \phi(B_n) \Rightarrow \phi(A) = \sum_{n = 1}^{\infty} \phi(B_n)$$
+$$\phi(A_n) = \phi(B_1) + \ldots \phi(B_n) \Rightarrow \phi(A) = \sum_{n = 1}^{\infty} \phi(B_n)$$
 
 
 \begin{definition}
-  Мера --- неотрицательная, счетно-аддитивная функция, определенная на $\sigma$-алгебре.
+  \textit{Мера} --- неотрицательная, счетно-аддитивная функция, определенная на $\sigma$-алгебре.
 \end{definition}
 
 
 
 
-\subsection{Мера Лебега в евклидовом пространстве $\R^n$}
+\subsection{Мера Лебега в евклидовом пространстве $\R^p$}
 
 \begin{definition}
-  Брус --- $I = \left\{x \in \R^n : a_i \leq x_i \leq b_i \right\}$.
+  \textit{Брус} --- $I = \left\{x \in \R^p : a_i \leq x_i \leq b_i \right\}$.
 \end{definition}
 
 Примеры:
 
-1) $\mu(I) = \prod_{i = 1}^{n} (b_i - a_i)$
-
-2) $p = 1$, $\R^n = \R$, $\alpha : \R \to \R$ --- монотонно-возраст
-
 \begin{itemize}
-  \item $\mu([a, b]) = \alpha(b+) - \alpha(a-)$
-  \item $\mu((a, b)) = \alpha(b-) - \alpha(a+)$
-  \item $\mu([a, b)) = \alpha(b-) - \alpha(a-)$
-  \item $\mu((a, b]) = \alpha(b+) - \alpha(a+)$
+  \item $\mu(I) = \prod_{i = 1}^{n} (b_i - a_i)$
+  \item $p = 1$, $\R^p = \R$, $\alpha : \R \to \R$ --- монотонно-возрастающая
+  \begin{itemize}
+    \item $\mu([a, b]) = \alpha(b+) - \alpha(a-)$
+    \item $\mu((a, b)) = \alpha(b-) - \alpha(a+)$
+    \item $\mu([a, b)) = \alpha(b-) - \alpha(a-)$
+    \item $\mu((a, b]) = \alpha(b+) - \alpha(a+)$
+  \end{itemize}
 \end{itemize}
 
 \begin{definition}
@@ -89,13 +89,13 @@ $\mu(A)$, $A \in \mathcal{E}$, $\mu(A) = \sum \mu(I_i)$ при $I_i \cap I_j = \
 $\mathcal{E}$ является кольцом, а $\mu$ аддитивна на нем.
 
 \begin{problem}
-  Любое открытое множество в $\R^n$ можно представить в виде счетного числа брусов.
+  Любое открытое множество в $\R^p$ можно представить в виде счетного числа брусов.
 \end{problem}
 
 $0 \leq \mu$, конечность, аддитивность и регулярность на $\mathcal{E}$.
 
 \begin{definition}
-  $\mu$ называется регулярной (на $\mathcal{E}$), если 
+  $\mu$ называется \textit{регулярной} (на $\mathcal{E}$), если 
 
   $\forall A \in \mathcal{E}$ и $\forall \epsilon>0\ \exists\text{ замкнутые } F \in \mathcal{E} \text{ и открытое } G \in \mathcal{E}$
 
